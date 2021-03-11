@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+ <div class="container mt-4 ">
+        <div class="row">
+            {# je boucle sur la collection surf_list#}
+            {% for surf in surf_list %}
+         
+           <div class="card mb-5 col-6">
+                
+                <img src="{{ asset('uploads/pictures/' ~ (surf.picture ?: 'default-image.jpg')) }}" alt="Description produit" class="card-img-top">
+                <div class="card-body">
+                  <h5 class="card-title">{{surf.name}}</h5>
+                  <p class="card-text">{{surf.description}}</p>
+                  <p class="card-text"> {{surf.price}} 	&#x20AC;</p>
+                  <p class="card-text"><small class="text-muted">Modifiéé le :{{surf.updatedAt|date("d/m/Y")}}</small></p>
+                </div>
+              </div>
+            {% endfor %}
+</div>
+{% endblock %}

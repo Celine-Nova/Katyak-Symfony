@@ -1,0 +1,21 @@
+<div class="card mb-4">
+    <div class="card-body">
+      <img src="{{ asset('uploads/pictures/' ~ (product.picture ?: 'default-image.jpg')) }}" alt="Description produit" class="card-img-top">
+        <h5 class="card-title">{{product.name}}</h5>
+        <p class="card-text">{{product.description|slice(0, 50)}}</p>
+    </div>
+
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Prix : {{product.price}} 	&#x20AC; </li>
+        <li class="list-group-item">Categorie : {{product.category.name}}, Type: {{product.type.name}}</li>
+        <li class="list-group-item">Marque : {{product.brand.name}}</li>
+      </ul>
+
+    <div class="card-body">
+          <a href="{{ path('product_show', {'id': product.id }) }}" class="card-link">Voir le Produit</a>
+    </div>
+    <div class="card-footer">
+        <small class="text-muted">Dernière mise à jour le : {{product.updatedAt|date("d/m/Y")}}</small>
+      </div>
+</div>
+

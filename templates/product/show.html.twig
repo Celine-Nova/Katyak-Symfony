@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+
+<div class="card mb-5 col-6">
+  {#chemin image avec concatenation et condition ternaire #}
+  <img src="{{ asset('uploads/pictures/' ~ (product.picture ?: 'default-image.jpg')) }}" alt="Description produit" class="card-img-top">
+    <div class="card-body">
+      <h5 class="card-title">{{product.name}}</h5>
+      <p class="card-text">{{product.description}}</p>
+      <p class="card-text"> {{product.price}} 	&#x20AC;</p>
+      <p class="card-text"><small class="text-muted">Modifiéé le : {{product.updatedAt|date("d/m/Y")}}</small></p>
+    </div>
+  </div>
+  {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+  <a class="btn btn-outline-warning my-2 my-sm-0"  href="{{ path('backend_product_edit', {'id': product.id} )}} ">Modifier</a>
+  {% endif %}
+
+{% endblock %}

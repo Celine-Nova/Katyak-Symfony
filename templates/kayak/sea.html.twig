@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+ <div class="container mt-4 ">
+        <div class="row">
+            {# je boucle sur la collection kayak_list#}
+            {% for kayak in kayak_list %}
+           
+           <div class="card mb-5 col-6">
+                
+                <img src="{{ asset('uploads/pictures/' ~ (kayak.picture ?: 'default-image.jpg')) }}" alt="Description produit" class="card-img-top">
+                <div class="card-body">
+                  <h5 class="card-title">{{kayak.name}}</h5>
+                  <p class="card-text">{{kayak.description}}</p>
+                  <p class="card-text"> {{kayak.price}} 	&#x20AC;</p>
+                  <p class="card-text"><small class="text-muted">Modifiéé le :{{kayak.updatedAt|date("d/m/Y")}}</small></p>
+                </div>
+              </div>
+                        
+            {% endfor %}
+</div>
+{% endblock %}

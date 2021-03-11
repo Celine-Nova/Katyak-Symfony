@@ -1,0 +1,46 @@
+
+<nav class="nav justify-content-around m-3  px-5">
+<!-- <a class="navbar-brand" href="#">Navbar</a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button> -->
+<div class="Link justify-content-around">
+<ul class="nav nav-pills ">
+    <li class="nav-item mr-3">
+      <a class="nav-link " href="{{ path('product') }}">Accueil</a>
+    </li>
+    <li class="nav-item dropdown mx-4 ">
+      <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Bâteaux</a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="{{ path('motor_boats') }}">Moteur</a>
+        <a class="dropdown-item" href="{{ path('sailing_ship') }}">Voile</a>
+      </div>
+    </li>
+    <li class="nav-item dropdown mx-4">
+      <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Kayak</a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="{{ path('sea_kayak') }}">Mer</a>
+        <a class="dropdown-item" href="{{ path('river_kayak') }}">Rivière</a>
+      </div>
+    </li>
+    <li class="nav-item mx-4">
+        <a class="nav-link " href="{{ path('paddle') }}">Paddle</a>
+    </li>
+    <li class="nav-item ml-3">
+        <a class="nav-link " href="{{ path('surf') }}">Surf</a>
+    </li>
+  </ul>
+</div>
+<!-- <form class="form-inline ">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+</form> -->
+
+<div>
+  {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+    <a class="btn btn-outline-danger my-2 my-sm-0"  href="{{ path('app_logout')}} ">Déconnexion</a>
+  {% else %}
+    <a class="btn btn-outline-primary my-2 my-sm-0"  href="{{ path('app_login')}} ">Login</a>
+  {% endif %}
+</div>   
+</nav>

@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+ <div class="container mt-4 ">
+        <div class="row">
+            {# je boucle sur le tableau de pagination #}
+            {% for product in pagination %}
+            <div class="col-md-3">
+                {% include "product/product.html.twig" %}
+            </div>
+        {% endfor %}
+        </div>
+            <div>
+                {{ knp_pagination_render(pagination) }}
+            </div>
+            <div>
+               Nombre total de produits: {{ pagination.getTotalItemCount }}
+            </div>
+        <div>
+            <a href="{{ path('backend_product_new') }}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Ajoutez un produit</a>
+</div>
+{% endblock %}
